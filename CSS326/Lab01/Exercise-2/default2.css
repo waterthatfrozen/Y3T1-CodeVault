@@ -1,0 +1,177 @@
+﻿/* 	Paphana Yiwsiw 
+	6222780379
+	CSS326 Lab01 */
+
+div#wrapper {
+
+	min-width:600px;
+	box-shadow: 0px 0px 5px 5px #AAAAAA;
+	/*fallback for browser not supporting shadow*/
+	border-left:1px solid #AAAAAA; 
+	border-right:1px solid #AAAAAA;	
+	/*Set top padding to 0.3em so we have little space at the top of the page*/
+	padding-top: 0.3em;
+	/*Set margin to auto*/
+	margin: auto;
+	/*Set width to 70%*/
+	width: 70%;
+}
+
+div#subwrapper{
+	/*Set left and right margins to 20px so that we can have a little white space between shadow and the main panel*/
+	margin: 0px 20px 0px 20px;
+}
+
+body {	
+	margin:0px;
+	font-family:sans-serif;
+}
+
+div#div_main{
+	position:relative;	
+}
+
+div#div_header{
+	/*Set font size to 2em*/
+	font-size: 2em;
+	/*Set font weight to 700*/
+	font-weight: 700;
+	/*Set font variant to small-caps*/
+	font-variant: small-caps;
+	/*Set padding to 0.7 em to have a larger heading*/
+	padding: 0.7em;
+	/*Set background color to #85ACF7 (blue heading)*/
+	background-color: #85ACF7;
+	/*Set font color to white*/
+	color: white;
+}
+
+div#div_subhead{ /*div which contains menu*/
+	/*Set background color to #F4F4F4 (light gray)*/
+	background-color: lightgray;
+	/*Set bottom border to 1pixel solid line with black color*/
+	border-bottom: 1px solid black;
+}
+
+div#div_right{ /*blank panel on the right side of the main content*/
+	position:absolute;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	width:10%;
+	border-left: 1px solid #85ACF7;
+	
+	/*Set background color to #D6E3FC*/
+	background-color: #D6E3FC;
+	
+}
+
+div#div_content{	
+	min-height: 400px;
+	/*Set left margin to 5% */
+	margin-left: 5%;
+	/*Set padding of all sides to 1em so the main content does not touch any boundary*/
+	padding: 1em;
+}
+
+div#div_footer{
+	/*Set top border to a 3-pixel solid line with color #888888*/
+	border-top: 3px solid #888;
+	
+	/*Center the text*/
+	text-align: center;
+	/*Set padding of all sides to 1em*/
+	padding: 1em;
+}
+/*
+div#div_footer:after{
+	content: "Adapted from BlueFreedom theme from wordpress.com";
+}
+*/
+ul#menu{
+	
+	padding:0.5em;	
+	/*Set list-style-type to none to remove the list bullets*/
+	list-style-type: none;
+	
+	/*Set font size to 0.9em*/
+	font-size: 0.9em;
+	/*Set margin of all sides to 0*/
+	margin: 0px;
+}
+
+#menu li{
+	/*Center the text*/
+	text-align: center;
+	/*Set display to inline so all <li> are on the same line. By default, <li> is a block element*/
+	display: inline;
+}
+
+#menu a{
+	/*Set padding to 0.8em to have a bigger menu items*/
+	padding: 0.8em;
+}
+
+#menu a:link, #menu a:visited{
+	/*Set text-decoration to none to remove link underlines*/
+	text-decoration: none;
+	/*Set font color to black*/
+	color: black;
+}
+
+#menu a:hover, #menu a:active{
+	color: rgb(0, 102, 204);
+}
+
+h2{
+	
+	margin-top:0.4em;
+	margin-bottom:0.4em;	
+	/*Set text color to #527BBD*/
+	color: #527BBD;
+	/*Set bottom border to 2pixel dotted line with color #C5D8FB*/
+	border-bottom: 2px dotted #C5D8FB;
+}
+
+.form label{
+	display: block;
+	margin-right:10px;
+	/*Align the text to the right*/
+	text-align: right;
+	/*Set text to bold*/
+	font-weight: bold;
+	/*Fix the width to 200px.*/
+	width: 200px;
+	/*Set float property to left so that the labels are on the left of text fields*/
+	float: left;
+	
+}
+
+
+.form input{
+	padding: 4px 2px;
+	margin: 2px 2px 10px 10px;
+}
+
+.form input[type="text"], .form input[type="password"]{
+	display:block;
+	width:200px;	
+}
+.form input[type="submit"]{
+	display: block;
+	/*Set width to 150 pixels to have a big submit button*/
+	width: 150px;
+}
+
+.form input[type="checkbox"]{
+	display:block;
+}
+.form select{
+	padding: 4px 2px;
+	display:block;
+	margin: 2px 2px 10px 10px;
+}
+
+.center{
+	text-align:center;
+}

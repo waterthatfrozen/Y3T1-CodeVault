@@ -1,0 +1,37 @@
+<!-- Exercise 1d -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <style type="text/css">
+        body{
+            font-family: sans-serif;
+            padding: 5rem;
+        }
+        input{
+            margin-bottom: 10px;
+        }
+        label{
+            margin-bottom: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Log In</h1>
+    <div>
+        <form id="login-form" method="post" action="view.php">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            <br/>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            <br/>
+            <input type="submit" name="submit">
+        </form>
+    </div>
+</body>
+</html>
