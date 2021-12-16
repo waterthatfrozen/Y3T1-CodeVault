@@ -1,0 +1,109 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[final]{graphicx}
+\usepackage{amsmath} 
+\usepackage{geometry}
+\usepackage{appendix}
+\usepackage{listings}
+\usepackage{titling}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codeblue}{rgb}{0,0,0.7}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codeblue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\lstset{basicstyle=\ttfamily}
+
+\newcommand{\subtitle}[1]{%
+	\posttitle{%
+		\par\end{center}
+	\begin{center}\large#1\end{center}
+	\vskip0.1em}}%
+\graphicspath{{images/}}
+\geometry{
+ a4paper,
+ margin=1in
+}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\title{Project 2 Report}
+\subtitle{CSS322 Scientific Computing\\Sirindhorn International Institute of Technology, Thammasat University\\Semester 1 Academic Year 2021}
+\author{Paphana Yiwsiw \\ 6222780379 \\ Section 3}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage 
+\section{Newton’s method for unconstrained optimization}
+\paragraph{}
+The following is the result from running newton's method for unconstrained optimization on $f(x) = sin(x_1) - cos(x_2)$. The value of $x^{(k)}$ and the corresponding $f(x^{(k)})$ at $k = 0,5,10,15$.
+\begin{itemize}
+    \item $k = 0, x^{(0)} = \begin{bmatrix} 0.5434 \\ 0.2784 \end{bmatrix}, f(x^{(0)}) = -0.4445$.
+    \item $k = 5, x^{(5)} = \begin{bmatrix} 1.5708 \\ 0 \end{bmatrix}, f(x^{(5)}) = 0$.
+    \item $k = 10, x^{(10)} = \begin{bmatrix} 1.5708 \\ 0 \end{bmatrix}, f(x^{(10)}) = 0$.
+    \item $k = 15, x^{(15)} = \begin{bmatrix} 1.5708 \\ 0 \end{bmatrix}, f(x^{(15)}) = 0$.
+\end{itemize}
+
+\section{Naive Random Search Algorithm}
+\paragraph{}
+The following is the result from running naive random search algorithm on perturbed $f(x)$. The value of $x^{(k)}$ before picking candidate and corresponding value $Z(x^{(k)})$ at $k = 0,25,50,75,100$.
+\begin{itemize}
+    \item $k = 0,   x^{(0)} = \begin{bmatrix} 583 \\ 556 \end{bmatrix}, Z(x^{(0)}) = -0.9699$.
+    \item $k = 25,  x^{(25)} = \begin{bmatrix} 585 \\ 555 \end{bmatrix}, Z(x^{(25)}) = -1.5657$.
+    \item $k = 50,  x^{(50)} = \begin{bmatrix} 585 \\ 555 \end{bmatrix}, Z(x^{(50)}) = -1.5657$.
+    \item $k = 75,  x^{(75)} = \begin{bmatrix} 585 \\ 555 \end{bmatrix}, Z(x^{(75)}) = -1.5657$.
+    \item $k = 100, x^{(100)} = \begin{bmatrix} 585 \\ 555 \end{bmatrix}, Z(x^{(100)}) = -1.5657$.
+\end{itemize}
+\paragraph{}
+From observation, it seemed that it is currently stuck in a region around local optimizer, when neighborhood have larger objective function values than the current point.
+
+\section{Simulated Annealing Algorithm}
+\paragraph{}
+The following is the result from running simulated annealing algorithm applied on perturbed $f(x)$. The value of $x^{(k)}$ before picking candidate and corresponding value $Z(x^{(k)})$ at $k = 0,25,50,75,100$.
+\begin{itemize}
+    \item $k = 0,     x^{(0)} =  \begin{bmatrix} 40 \\ 44 \end{bmatrix}, Z(x^{(0)}) = 0.0648$.
+    \item $k = 25,   x^{(25)} =  \begin{bmatrix} 37 \\ 58 \end{bmatrix}, Z(x^{(25)}) = -0.3207$.
+    \item $k = 50,   x^{(50)} =  \begin{bmatrix} 32 \\ 65 \end{bmatrix}, Z(x^{(50)}) = 0.2214$.
+    \item $k = 75,   x^{(75)} =  \begin{bmatrix} 40 \\ 41 \end{bmatrix}, Z(x^{(75)}) = -0.0050$.
+    \item $k = 100, x^{(100)} =  \begin{bmatrix} 47 \\ 39 \end{bmatrix}, Z(x^{(100)}) = 0.0570$.
+\end{itemize}
+\paragraph{}
+Noted that the best-so-far point from running simulated annealing algorithm is at $x = \begin{bmatrix} 49 \\ 39 \end{bmatrix}$ and $Z(x) = -0.5004$.
+
+\newpage
+\section*{MATLAB Code}
+\subsection*{Newton's Method for Unconstrained Optimization}
+\lstinputlisting[language=Octave]{newtons.m}
+\paragraph{}
+\subsection*{Naive Random Search Algorithm}
+\lstinputlisting[language=Octave]{naive_random.m}
+\paragraph{}
+\subsection*{Simulated Annealing Algorithm}
+\lstinputlisting[language=Octave]{simulated_annealing.m}
+\end{document}
