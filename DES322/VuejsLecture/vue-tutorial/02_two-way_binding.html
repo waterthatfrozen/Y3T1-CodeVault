@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+    <title>02 2-way Binding</title>
+</head>
+
+<body>
+    <div id="hello-vue" class="demo">
+        <input type="text" v-model="message" /> {{ message }}
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const HelloVueApp = {
+            data() {
+                return {
+                    message: 'Hello Vue!!',
+                }
+            },
+        }
+        // 2-way binding it means that data in web also change in VueJs app and vice versa.
+        Vue.createApp(HelloVueApp).mount('#hello-vue')
+    </script>
+</body>
+
+</html>

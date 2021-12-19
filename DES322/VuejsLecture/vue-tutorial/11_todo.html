@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+    <title>11-To do list</title>
+</head>
+
+<body>
+    <div id="hello-vue" class="demo">
+        <!-- Binding todo var with todo property -->
+        <!-- If task-toggle event is emitted, toggle method will be called -->
+        <todo v-for="todo in todoItem" :todo="todo" :key="todo.id" @task-toggle="toggle"></todo>
+        <br/> You have complete {{completeCount}} task(s) !
+    </div>
+    <!-- Create template todo-list -->
+    <template id="todo-template">
+        <!-- v-model used to ignore the initial value -->
+        <input type=checkbox v-model="todo.complete" />
+        <!-- Create click event to bind data -->
+        <span @click="clicked">{{todo.item}}</span><br/>
+    </template>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const HelloVueApp = {
+            data() {
+                // Create todoItem array
+                return {
+                    todoItem: [{
+                        id: 1,
+                        item: "Buy milk",
+                        complete: false
+                    }, {
+                        id: 2,
+                        item: "Clean room",
+                        complete: true
+                    }, {
+                        id: 3,
+                        item: "Do homework",
+                        complete: false
+                    } ]
+                }
+            },
+            methods: {
+                // Toggle the data in the array todoItem
+                toggle: function(id) {
+                    for (var i = 0; i < this.todoItem.length; i++) {
+                        if (this.todoItem[i].id == id)
+                            this.todoItem[i].complete = !this.todoItem[i].complete
+                    }
+                }
+            },
+            // Compute count of complete task
+            computed: {
+                completeCount: function() {
+                    count = 0
+                    for (var i = 0; i < this.todoItem.length; i++) {
+                        if (this.todoItem[i].complete) count++
+                    }
+                    return count
+                }
+            }
+
+        }
+
+        const app = Vue.createApp(HelloVueApp)
+
+        // Define a new global component called todo
+        app.component('todo', {
+            // This component has no data
+            data() {
+                return {}
+            },
+            // Create todo property
+            props: ["todo"],
+            template: "#todo-template",
+            emits: ["task-toggle"],
+            methods: {
+                // Handle click event and emeit the task-toggle todo id
+                clicked: function() {
+                    // Component custom event
+                    // Passing event from child to the parent
+                    this.$emit("task-toggle", this.todo.id)
+                }
+            }
+        })
+        app.mount('#hello-vue')
+    </script>
+</body>
+
+</html>

@@ -15,3 +15,6 @@ More information about each lab can be found in the assignment file.
 - Lab 09: Python (PyMySQL) Data Manipulation (2)
 - Lab 11: User-Defined Function, Stored Procedure, and Triggers
 - Lab 12: DBMS Security
+
+## Project
+- Please visit [Project EATERIO GitHub](https://github.com/waterthatfrozen/EATERIO)

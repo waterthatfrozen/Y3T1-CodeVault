@@ -1,0 +1,41 @@
+<html>
+<body>
+    <div id="hello-vue">
+        <button @click="get_product">
+            Get Products
+        </button>
+        <ul>
+            <li v-for="product in products" :key="product.id">{{product.name}}</li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+
+        const HelloVueApp = {
+            data() {
+                return {
+                    products : [],
+                }
+            },
+            methods: {
+                update_product : function(products){
+                    this.products = products
+                },
+                get_product : function(){
+                        axios.get("/product")
+                             .then(response => this.update_product(response.data.products))
+                             .catch(error => {
+                                console.log("Error")
+                            })
+                }
+            },
+        }
+
+        Vue.createApp(HelloVueApp).mount('#hello-vue')
+
+    </script>
+</body>
+</html>

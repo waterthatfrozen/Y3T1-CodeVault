@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+    <title>08-Custom Component 2</title>
+</head>
+
+<body>
+    <div id="hello-vue" class="demo">
+        <button-counter></button-counter>
+    </div>
+
+    <template id="click-counter">
+        <button @click="count++">
+            You clicked me {{count}} times
+        </button>
+    </template>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const HelloVueApp = {
+            data() {
+                return {}
+            }
+        }
+
+        const app =Vue.createApp(HelloVueApp)
+
+        app.component('button-counter', {
+            data() {
+                return {
+                    count : 0
+                }
+            },
+            template : "#click-counter"
+        })
+
+        app.mount('#hello-vue')
+    </script>
+</body>
+
+</html>

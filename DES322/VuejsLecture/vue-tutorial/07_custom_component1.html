@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+    <title>07-Custom Component 1</title>
+</head>
+
+<body>
+    <div id="hello-vue" class="demo">
+        <button-counter></button-counter>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+
+        const HelloVueApp = {
+            data() {
+                return {}
+            }
+        }
+        // Create Vuejs app
+        const app =Vue.createApp(HelloVueApp)
+        // This is creating custome component
+        // Create this component with the name <button-counter>
+        app.component('button-counter', {
+            // Generate data of the component
+            data() {
+                return {
+                    count : 0
+                }
+            },
+            // Template to build the component
+            template : `
+                <button @click="count++">
+                    You clicked me {{count}} times.
+                </button>`
+            // @click is equivalent to v-on:click event
+            // will active when clicked
+        })
+        // Mount to the id hello-vue
+        app.mount('#hello-vue')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+Product ID : 001
+Product Name : Handbag Vivo
+Product Desc : Minimal Handbag
+Product Price : 100
+Image name : handbag.png
+
+Product ID : 002
+Product Name : Kitty Kimono
+Product Desc : Kimono from Japan
+Product Price : 200
+Image name : kimono.png
+
+Product ID : 003
+Product Name : Rolex Watch
+Product Desc : High-end Watch
+Product Price : 300
+Image name : rolex.png
